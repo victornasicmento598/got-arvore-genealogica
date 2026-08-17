@@ -1,0 +1,11 @@
+# imagens brutas baixadas das wikis (intermediárias, ~12 MB)
+# o site usa site/img/, que é gerado a partir delas por scripts/process_images.py
+img_raw/
+
+# cache Python
+__pycache__/
+*.pyc
+
+# sistema
+.DS_Store
+Thumbs.db

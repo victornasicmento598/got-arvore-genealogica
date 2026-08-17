@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+<title>As Casas de Westeros — Árvore Genealógica de Game of Thrones</title>
+<meta name="description" content="Árvore genealógica interativa das grandes casas de Westeros: Targaryen, Stark, Lannister, Baratheon, Tully, Arryn, Greyjoy, Martell e Tyrell.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>As Casas de Westeros<span>Árvore genealógica · Game of Thrones &amp; House of the Dragon</span></h1>
+  <nav></nav>
+  <div id="tools">
+    <div id="searchwrap">
+      <input id="q" type="search" autocomplete="off" spellcheck="false"
+             placeholder="Buscar personagem, casa ou ator…" aria-label="Buscar">
+      <button id="qx" title="Limpar busca" aria-label="Limpar busca">×</button>
+      <div id="qres" role="listbox"></div>
+    </div>
+    <button class="tg" id="tgcrown" title="Mostrar apenas quem reinou">Só realeza</button>
+    <button class="tg" id="tgshow" title="Mostrar apenas quem aparece nas séries">Só nas séries</button>
+  </div>
+  <div id="sub"></div>
+</header>
+
+<div id="stage">
+  <div id="world">
+    <svg id="edges" xmlns="http://www.w3.org/2000/svg">
+      <style>
+        .e{stroke:#8a6b3d;stroke-width:2.5}
+        .e.b{stroke:#9d3b3b;stroke-dasharray:7 6;stroke-width:2}
+        .m{stroke:#8d1f1f;stroke-width:4;stroke-linecap:round}
+        .m.b{stroke-dasharray:7 6;stroke-width:3}
+        .m.arc{stroke-width:2.5;opacity:.75}
+      </style>
+    </svg>
+  </div>
+</div>
+
+<div id="legend">
+  <b>Legenda</b><br>
+  <i class="m"></i>casamento <em>(marriage)</em><br>
+  <i></i>descendência <em>(issue)</em><br>
+  <i class="b"></i>bastardo / paternidade real<br>
+  <span class="cr sov">♛</span>monarca dos Sete Reinos<br>
+  <span class="cr reg">♔</span>rei/rainha regional ou pretendente<br>
+  <span class="cr con">♁</span>consorte coroado
+</div>
+
+<div id="lineage">
+  <button id="lnx" title="Fechar">×</button>
+  <div id="lnbody"></div>
+</div>
+
+<div id="zoombox">
+  <button id="zin" title="Aproximar (zoom in)">+</button>
+  <button id="zout" title="Afastar (zoom out)">−</button>
+  <button id="zfit" class="sm" title="Enquadrar tudo">ajustar</button>
+</div>
+
+<div id="hint">arraste para mover · role para dar zoom · clique na imagem para ampliar · <b>clique no nome</b> para ver a linhagem · <b>/</b> busca</div>
+
+<div id="lb">
+  <button id="lbx" title="Fechar">×</button>
+  <div id="lbin">
+    <img id="lbimg" alt="">
+    <div id="lbtx"></div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
