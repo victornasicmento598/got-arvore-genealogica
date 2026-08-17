@@ -312,8 +312,10 @@
       (sp.length ? '<div class="grp"><h4>Cônjuges</h4>' + list(sp, "") + "</div>" : "") +
       '<div class="grp"><h4>Filhos <em>(' + kids.length + ")</em></h4>" +
         list(kids, "Sem descendência registrada") + "</div>" +
-      '<div class="grp tot"><span>' + anc.ids.length + " ascendentes</span>" +
-        "<span>" + desc.ids.length + " descendentes</span></div>";
+      '<div class="grp tot"><span>' + anc.ids.length +
+        (anc.ids.length === 1 ? " ascendente" : " ascendentes") + "</span>" +
+        "<span>" + desc.ids.length +
+        (desc.ids.length === 1 ? " descendente" : " descendentes") + "</span></div>";
     document.getElementById("lineage").classList.add("on");
     document.body.classList.add("lineage-open");
   }
