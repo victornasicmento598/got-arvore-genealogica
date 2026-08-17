@@ -1,6 +1,6 @@
 import base64, io, json, os
 from PIL import Image
-os.chdir("/home/user/got/site")
+os.chdir(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "docs"))
 
 def enc(path, maxw, q):
     im = Image.open(path).convert("RGB")

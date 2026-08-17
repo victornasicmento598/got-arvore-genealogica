@@ -7,7 +7,7 @@ from PIL import Image, ImageOps
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 RAW = os.path.join(ROOT, "img_raw")
-SITE = os.path.join(ROOT, "site")
+SITE = os.path.join(ROOT, "docs")
 TH = os.path.join(SITE, "img", "t")
 BG = os.path.join(SITE, "img", "f")
 for d in (TH, BG):

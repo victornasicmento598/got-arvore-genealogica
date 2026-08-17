@@ -39,17 +39,17 @@ git push -u origin main --quiet
 git remote set-url origin "https://github.com/${GITHUB_USER}/${REPO}.git"
 echo "    enviado."
 
-echo "==> ativando GitHub Pages (branch main, pasta /site)"
+echo "==> ativando GitHub Pages (branch main, pasta /docs)"
 code=$(curl -s -o /tmp/gh_pages.json -w '%{http_code}' \
   -X POST "https://api.github.com/repos/${GITHUB_USER}/${REPO}/pages" \
   -H "Authorization: Bearer $GITHUB_TOKEN" \
   -H "Accept: application/vnd.github+json" \
-  -d '{"source":{"branch":"main","path":"/site"}}')
+  -d '{"source":{"branch":"main","path":"/docs"}}')
 case "$code" in
   201|204) echo "    ativado." ;;
   409)     echo "    já estava ativo." ;;
   *)       echo "    não foi possível ativar automaticamente (HTTP $code)."
-           echo "    ative em Settings > Pages: branch main, pasta /site." ;;
+           echo "    ative em Settings > Pages: branch main, pasta /docs." ;;
 esac
 
 echo

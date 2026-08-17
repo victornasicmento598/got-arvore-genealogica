@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Motor de layout das árvores genealógicas -> site/data.json"""
+"""Motor de layout das árvores genealógicas -> docs/data.json"""
 import os, sys, json
 sys.path.insert(0, os.path.dirname(__file__))
 import data_chars as D
@@ -342,8 +342,8 @@ def main():
                   (r["id"], len(r["nodes"]), w, h, max(n["gen"] for n in r["nodes"]) + 1))
     data = {"tabs": tabs, "nodew": NODEW, "nodeh": NODEH, "rowh": ROWH,
             "colors": {k.strip(): v for k, v in D.HOUSE_COLORS.items()}}
-    os.makedirs(os.path.join(ROOT, "site"), exist_ok=True)
-    with open(os.path.join(ROOT, "site", "data.json"), "w", encoding="utf-8") as f:
+    os.makedirs(os.path.join(ROOT, "docs"), exist_ok=True)
+    with open(os.path.join(ROOT, "docs", "data.json"), "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, separators=(",", ":"))
     tot = sum(len(t["nodes"]) for t in tabs)
     print("total de nós renderizados:", tot)

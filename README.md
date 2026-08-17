@@ -7,7 +7,7 @@
 
 ## Ver o site
 
-- **Online:** ative o GitHub Pages (instruções abaixo) e acesse `https://<usuario>.github.io/<repositorio>/`
+- **Online:** <https://victornasicmento598.github.io/got-arvore-genealogica/>
 - **No celular, sem internet:** baixe [`arvore-westeros.html`](arvore-westeros.html) e abra no navegador.
   É um arquivo único de 7,3 MB com CSS, JavaScript, dados e **todas as imagens embutidas em base64** —
   funciona em modo avião, sem nenhuma requisição de rede.
@@ -41,24 +41,24 @@ O site é estático, sem build. Depois de subir o repositório:
 
 1. **Settings › Pages**
 2. Em *Source*, escolha **Deploy from a branch**
-3. Branch **`main`**, pasta **`/site`** → *Save*
+3. Branch **`main`**, pasta **`/docs`** → *Save*
 
 Em cerca de um minuto o site estará em `https://<usuario>.github.io/<repositorio>/`.
 
-> Se preferir servir a partir da raiz (`/`), mova o conteúdo de `site/` para lá — mas
-> mantenha `index.html`, `style.css`, `app.js`, `data.json` e a pasta `img/` juntos.
+> A pasta se chama `docs/` porque o GitHub Pages só aceita `/` ou `/docs` como raiz do site.
+> Se mudar de lugar, mantenha `index.html`, `style.css`, `app.js`, `data.json` e `img/` juntos.
 
 Para rodar localmente:
 
 ```bash
-python3 -m http.server 8080 --directory site
+python3 -m http.server 8080 --directory docs
 # abra http://localhost:8080
 ```
 
 ## Estrutura
 
 ```
-site/                     # o site (é isto que o GitHub Pages publica)
+docs/                     # o site (é isto que o GitHub Pages publica)
   index.html
   style.css
   app.js                  # render SVG, zoom/pan, busca, linhagem, lightbox
@@ -68,7 +68,7 @@ arvore-westeros.html      # build offline: tudo em um arquivo só
 scripts/
   data_chars.py           # dataset: pessoas, uniões e as 6 árvores
   crowns.py               # taxonomia curada de realeza
-  layout.py               # motor de layout → site/data.json
+  layout.py               # motor de layout → docs/data.json
   fetch_images.py         # baixa retratos das wikis
   fix_images.py  fix2.py  # tenta preencher os faltantes
   sigils.py               # gera brasões para quem não tem retrato
@@ -80,7 +80,7 @@ img_raw/                  # imagens originais (fora do Git, veja .gitignore)
 ## Regerar
 
 ```bash
-python3 scripts/layout.py            # recalcula posições → site/data.json
+python3 scripts/layout.py            # recalcula posições → docs/data.json
 python3 scripts/build_singlefile.py  # regera o HTML offline
 ```
 
